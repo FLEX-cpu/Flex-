@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<script>/*FB*/if(top!==self){document.documentElement.style.display="none"}/*END*/</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FLEX | فودافون كاش</title>
+<meta name="theme-color" content="#000000">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--card:#0c0c0d;--line:#1f1f22;--mut:#8d8f96;--red:#ff2a2a}
+*{box-sizing:border-box;margin:0}
+html{background:#000}
+body{background:#000 radial-gradient(ellipse 70% 30% at 50% 0,rgba(255,42,42,.14),transparent 70%) no-repeat;color:#f4f4f5;font-family:Cairo,system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;min-height:100vh;display:flex;justify-content:center;padding:calc(22px + env(safe-area-inset-top,0px)) 18px calc(30px + env(safe-area-inset-bottom,0px))}
+main{width:100%;max-width:440px}
+.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
+.top a{color:var(--mut);text-decoration:none;font-size:14px}
+.top b{font-size:26px;font-weight:800;letter-spacing:5px;color:#ffecec;direction:ltr;text-shadow:0 0 6px #ff6a6a,0 0 18px var(--red),0 0 36px var(--red)}
+.hero{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.ic{width:60px;height:60px;border-radius:18px;display:grid;place-items:center;font-weight:800;font-size:19px;color:#fff;background:linear-gradient(145deg,#ff2a2a,#b80000);box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 0 24px rgba(255,42,42,.3);direction:ltr}
+.hero h1{font-size:24px}.hero p{color:var(--mut);font-size:13.5px}
+.card{background:linear-gradient(180deg,#111113,var(--card));border:1px solid var(--line);border-radius:20px;padding:16px;margin-bottom:12px}
+.lbl{color:var(--mut);font-size:13px;margin-bottom:6px}
+.num{font-size:26px;font-weight:800;letter-spacing:1px;direction:ltr;text-align:right}
+.hn{margin-top:8px;font-size:14px;color:var(--mut)}.hn b{color:#fff;font-weight:700}
+.btn{display:block;width:100%;font:700 16px Cairo,sans-serif;text-align:center;text-decoration:none;border-radius:16px;padding:15px;border:1px solid var(--line);background:#16161a;color:#fff;margin-bottom:10px;cursor:pointer}
+.btn.p{background:var(--red);border-color:var(--red);box-shadow:0 0 22px rgba(255,42,42,.35)}
+.btn:active{transform:scale(.98)}
+.wa{background:#25d366;border-color:#25d366;color:#04210f}
+.lk{display:block;background:none;border:0;color:var(--mut);font:600 14px Cairo,sans-serif;text-decoration:underline;margin:4px auto 14px;cursor:pointer}
+#fb{display:none;border-color:var(--red);box-shadow:0 0 24px rgba(255,42,42,.2)}
+#fb .num{font-size:22px;margin-bottom:6px}
+#fb p{color:var(--mut);font-size:13px;line-height:1.8;margin-bottom:12px}
+.note{color:var(--mut);font-size:12.5px;text-align:center;line-height:1.9;margin-top:6px}
+#toast{position:fixed;bottom:calc(24px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%) translateY(20px);background:#fff;color:#000;padding:10px 20px;border-radius:30px;font-weight:700;opacity:0;transition:.25s;pointer-events:none;max-width:90%}
+#toast.on{opacity:1;transform:translateX(-50%)}
+</style>
+</head>
+<body>
+<main>
+  <div class="top"><a href="index.html">› الرئيسية</a><b>FLEX</b></div>
+
+  <div class="hero"><div class="ic">VC</div><div><h1>فودافون كاش</h1><p>حوّل على محفظة FLEX</p></div></div>
+
+  <div class="card"><div class="lbl">رقم المحفظة</div><div class="num" id="num"></div><div class="hn" id="hn"></div></div>
+
+  <a id="app" class="btn p">افتح تطبيق أنا فودافون</a>
+  <button id="cn" class="btn">نسخ الرقم</button>
+  <button id="nf" class="lk">معنديش التطبيق</button>
+
+  <div id="fb" class="card">
+    <div class="lbl">التطبيق مش موجود؟ حوّل بالكود</div>
+    <div class="num" id="code"></div>
+    <p>اضغط «اتصل بالكود» وسيفتح الاتصال والكود جاهز. غيّر الصفر للمبلغ اللي هتحوّله ثم اتصل.</p>
+    <a id="dial" class="btn p">اتصل بالكود</a>
+    <button id="cc" class="btn" style="margin-bottom:0">نسخ الكود</button>
+  </div>
+
+  <a id="wa" class="btn wa" target="_blank" rel="noopener noreferrer">أرسل الإيصال على واتساب</a>
+  <p class="note">بعد التحويل أرسل صورة الإيصال للتأكيد.<br>تأكد من الرقم والاسم قبل التحويل، ولا تشارك كلمة السر أو كود التحقق مع أي شخص.</p>
+</main>
+<div id="toast"></div>
+
+<script>
+// ===== إعدادات الصفحة =====
+var NUM  = "01001621853";                      // رقم فودافون كاش
+var WA   = "201001621853";                     // واتساب (دولي بدون +)
+var LINK = "https://vf.eg/vfcash?id=mt&qrId=LdToYF";   // رابط فودافون كاش
+var PKG  = "com.emeint.android.myservices";    // تطبيق أنا فودافون على أندرويد
+var CODE = "*9*7*" + NUM + "*0#";              // كود التحويل (المبلغ 0 والعميل يعدله)
+// ==========================
+var HOLDER = "محمد أشرف";   // اسم صاحب المحفظة للتأكيد (اتركه فاضي لو مش عايزه)
+var $ = function(i){return document.getElementById(i)};
+$("num").textContent = NUM;
+if(HOLDER){$("hn").innerHTML="اسم صاحب المحفظة (للتأكيد): <b></b>";$("hn").lastChild.textContent=HOLDER}else{$("hn").style.display="none"}
+$("code").textContent = CODE;
+$("dial").href = "tel:" + CODE.replace(/#/g,"%23");
+$("wa").href = "https://wa.me/"+WA+"?text="+encodeURIComponent("مرحبًا FLEX، قمت بالتحويل على فودافون كاش. مرفق الإيصال.");
+
+function showFb(){var f=$("fb");f.style.display="block";$("nf").style.display="none";f.scrollIntoView({behavior:"smooth",block:"center"})}
+$("nf").onclick = showFb;
+
+// فتح التطبيق: لو الصفحة لسه ظاهرة بعد ثانية ونص يبقى التطبيق مش موجود فنظهر الكود
+$("app").onclick = function(e){
+  e.preventDefault();
+  var left = false, h = function(){ if(document.hidden) left = true };
+  document.addEventListener("visibilitychange", h); window.addEventListener("pagehide", function(){left = true});
+  var url = LINK || (/Android/i.test(navigator.userAgent) ? "intent://#Intent;package="+PKG+";end" : "");
+  if(url) location.href = url;
+  setTimeout(function(){ document.removeEventListener("visibilitychange", h); if(!left) showFb() }, 1500);
+};
+
+function toast(t){var e=$("toast");e.textContent=t;e.className="on";setTimeout(function(){e.className=""},1900)}
+function copy(v,m){function fb(){var a=document.createElement("textarea");a.value=v;document.body.appendChild(a);a.select();try{document.execCommand("copy");toast(m)}catch(e){toast(v)}a.remove()}
+  try{navigator.clipboard.writeText(v).then(function(){toast(m)},fb)}catch(e){fb()}}
+$("cn").onclick = function(){copy(NUM,"تم نسخ الرقم")};
+$("cc").onclick = function(){copy(CODE,"تم نسخ الكود")};
+</script>
+</body>
+</html>
